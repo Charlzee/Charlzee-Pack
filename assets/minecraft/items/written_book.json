@@ -1,14 +1,19 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/written_book"
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "custom_model_data": 777
-      },
-      "model": "minecraft:item/command_book"
-    }
-  ]
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/written_book"
+    },
+    "entries": [
+      {
+        "threshold": 777,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/command_book"
+        }
+      }
+    ]
+  }
 }
